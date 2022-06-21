@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/AddOns/Mirror/Examples/Basic/Scenes/Example.unity
     guid: b30904751905d3f4dacde62ac85ec7c2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Kart/Circuit1.unity
+    guid: 311a512a9ec27964d9480894eb896a9f
   m_configObjects: {}

@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 114611966454256686}
   - component: {fileID: 8273783099466692658}
   - component: {fileID: 6153351684083817941}
-  - component: {fileID: 4193723161010497223}
+  - component: {fileID: 3188953118014159747}
   m_Layer: 0
   m_Name: ThirdPersonWalker_A_Animated
   m_TagString: Untagged
@@ -243,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5e44db14072ea4c964da3b192181c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   movementSpeed: 7
   airControlRate: 2
   jumpSpeed: 10
@@ -358,7 +360,7 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
---- !u!114 &4193723161010497223
+--- !u!114 &3188953118014159747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -372,8 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
-  animator: {fileID: 0}
+  clientAuthority: 1
+  animator: {fileID: 95248922535779116}
 --- !u!1 &1234082977098520
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4846488695786398
 Transform:
   m_ObjectHideFlags: 0
@@ -914,7 +916,7 @@ MonoBehaviour:
   castType: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   ignoreList:
   - {fileID: 136179175772395822}
   minimumDistanceFromObstacles: 0.3

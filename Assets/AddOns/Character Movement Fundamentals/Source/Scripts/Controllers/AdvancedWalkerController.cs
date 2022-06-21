@@ -95,7 +95,10 @@ namespace CMF
 
 		void Update()
 		{
-			HandleJumpKeyInput();
+			if (isLocalPlayer)
+			{
+				HandleJumpKeyInput();
+			}
 		}
 
         //Handle jump booleans for later use in FixedUpdate;

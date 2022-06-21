@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 namespace CMF
 {
 	//This script controls the character's animation by passing velocity values and other information ('isGrounded') to an animator component;
-	public class AnimationControl : MonoBehaviour {
+	public class AnimationControl : NetworkBehaviour {
 
 		Controller controller;
 		Animator animator;
@@ -49,7 +50,10 @@ namespace CMF
 		
 		//Update;
 		void Update () {
-
+			if(!isLocalPlayer)
+            {
+				return;
+            }
 			//Get controller velocity;
 			Vector3 _velocity = controller.GetVelocity();
 

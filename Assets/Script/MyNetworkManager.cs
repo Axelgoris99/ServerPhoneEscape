@@ -55,10 +55,20 @@ public class MyNetworkManager : NetworkManager
         NetworkServer.AddPlayerForConnection(conn, player);
     }
 
+    /// <summary>
+    /// We remove the players, and calculate the new camera size for the remaining players.
+    /// </summary>
+    /// <param name="conn">The connection between server and client</param>
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
         playersCamera.Remove(conn.connectionId);
         connectionIds.Remove(conn.connectionId);
+        int nbCam = playersCamera.Count;
+        for (int i = 0; i < nbCam; i++)
+        {
+            float[,] cam = ScreenSizeDependingOnPlayers[nbCam - 1];
+            playersCamera[connectionIds[i]].rect = new Rect(cam[i, 0], cam[i, 1], cam[i, 2], cam[i, 3]);
+        }
         base.OnServerDisconnect(conn);
     }
     public override void OnClientDisconnect()

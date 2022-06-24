@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-public class SendTap : NetworkBehaviour
+public class SendMoveForward : NetworkBehaviour
 {
+    public int strenght = 5;
+
     // Start is called before the first frame update
     private void OnEnable()
     {
-        Touch.OnTap += SendTouch;
-        Touch.OnTap += DebugData;
-    }
-
-    void DebugData()
-    {
-        Debug.Log("Touched");
+        MoveForward.OnForward += SendTouch;
     }
 
     void SendTouch()
@@ -26,14 +22,13 @@ public class SendTap : NetworkBehaviour
     [Command(requiresAuthority = false)]
     void CmdSendTouch()
     {
-        Debug.Log("Received Touch from client");
-        JumpAction();
+        ForwardAction();
     }
 
     [ServerCallback]
-    void JumpAction()
+    void ForwardAction()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.up, ForceMode.Impulse);
+        rb.AddForce(rb.transform.up * strenght, ForceMode.Impulse);
     }
 }

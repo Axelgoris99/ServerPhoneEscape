@@ -4,6 +4,16 @@
     font-size: 28px;
     color: rgba(0, 0, 0, 255);
     background-color: rgba(154, 0, 0, 255);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition-duration: 1s;
+    transition-delay: 0.1s;
 }
 
 .bouton:hover {

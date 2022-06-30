@@ -12,23 +12,25 @@ public class SendMoveForward : NetworkBehaviour
         Movement.OnForward += SendTouch;
     }
 
-    void SendTouch()
+    void SendTouch(float str)
     {
         if (isLocalPlayer)
         {
-            CmdSendTouch();
+            CmdSendTouch(str);
         }
     }
     [Command(requiresAuthority = false)]
-    void CmdSendTouch()
+    void CmdSendTouch(float str)
     {
-        ForwardAction();
+        ForwardAction(str);
     }
 
     [ServerCallback]
-    void ForwardAction()
+    void ForwardAction(float str)
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.AddForce(rb.transform.up * strenght, ForceMode.Impulse);
+        CharacterController cc = GetComponent<CharacterController>();
+        Vector3 forwardMove = transform.up;
+        cc.Move(forwardMove * str *  strenght * Time.deltaTime);
+        //rb.AddForce(rb.transform.up * strenght, ForceMode.Impulse);
     }
 }
